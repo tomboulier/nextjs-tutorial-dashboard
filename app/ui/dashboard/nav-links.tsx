@@ -1,10 +1,8 @@
 'use client';
 
-import {
-  UserGroupIcon,
-  HomeIcon,
-  DocumentDuplicateIcon,
-} from '@heroicons/react/24/outline';
+import { AiOutlineHome } from "react-icons/ai";
+import { FaRegHospital } from "react-icons/fa";
+import { PiUsersBold } from "react-icons/pi";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -12,13 +10,21 @@ import clsx from 'clsx';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
+    name: 'Home',
+    href: '/dashboard',
+    icon: AiOutlineHome
   },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  {
+    name: 'Centers',
+    href: '/dashboard/centers',
+    icon: FaRegHospital,
+  },
+  {
+    name: 'Patients',
+    href: '/dashboard/patients',
+    icon: PiUsersBold
+  },
 ];
 
 export default function NavLinks() {
@@ -38,7 +44,7 @@ export default function NavLinks() {
               },
             )}
           >
-            <LinkIcon className="w-6" />
+            <LinkIcon className="w-6" size="4em" />
             <p className="hidden md:block">{link.name}</p>
           </Link >
         );
